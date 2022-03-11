@@ -10,5 +10,15 @@ namespace TodoApi.Models
         }
 
         public DbSet<TodoItem> TodoItems { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<TodoItem>()
+                .ToTable("Todos")
+                .HasKey(e => e.Id);
+
+            builder.Entity<TodoItem>()
+                .HasIndex(e => e.Name);
+        }
     }
 }

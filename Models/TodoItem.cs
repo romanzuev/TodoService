@@ -1,12 +1,14 @@
-﻿namespace TodoApi.Models
+﻿using System;
+
+namespace TodoApi.Models
 {
     #region snippet
     internal class TodoItem
     {
         public long Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public bool IsComplete { get; set; }
-        public string Secret { get; set; }
+        public string Secret { get; set; } = string.Empty;
 
         public TodoItemDTO ToDto() =>
             new TodoItemDTO
